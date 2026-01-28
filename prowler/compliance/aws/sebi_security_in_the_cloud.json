@@ -1,0 +1,261 @@
+{
+  "Framework": "SEBI-Security-IN-The-Cloud-Framework",
+  "Name": "SEBI Cloud Adoption Framework",
+  "Version": "1.0",
+  "Provider": "AWS",
+  "Description": "In response to the evolving landscape of cyber threats and the increasing digitalization of financial markets, the Securities and Exchange Board of India (SEBI) initiated a comprehensive review of cyber security measures for registered market intermediaries (RMIs) and other entities within its regulatory purview",
+  "Requirements": [
+    {
+      "Id": "vulnerability_management_patch_management_1",
+      "Name": "Vulnerability Management and Patch Management",
+      "Description": "The RE shall have a well-defined Vulnerability Management policy in place and should strictly adhere with the same. The policy should also address the vulnerability management aspects of the infrastructure /services /etc. managed by RE in the cloud. The components managed by RE shall be up to date in terms of patches/OS/version etc. The patch management policy shall also mandate timely patch application.",
+      "Attributes": [
+        {
+          "ItemId": "vulnerability_management_patch_management_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "rds_instance_minor_version_upgrade_enabled",
+        "cloudtrail_log_file_validation_enabled",
+        "ec2_instance_imdsv2_enabled",
+        "ec2_instance_internet_facing_with_instance_profile",
+        "opensearch_service_domains_updated_to_the_latest_service_software_version",
+        "redshift_cluster_automatic_upgrades",
+        "ssm_managed_compliant_patching",
+        "guardduty_no_high_severity_findings",
+        "rds_instance_minor_version_upgrade_enabled"
+      ]
+    },
+    {
+      "Id": "continuous_monitoring_1",
+      "Name": "Continuous Monitoring",
+      "Description": "Continuous monitoring shall be done by the RE to review the technical, legal and regulatory compliance of CSP and take corrective measures/ ensure CSP takes corrective measures wherever necessary.",
+      "Attributes": [
+        {
+          "ItemId": "continuous_monitoring_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "apigateway_restapi_logging_enabled",
+        "cloudtrail_multi_region_enabled",
+        "cloudtrail_s3_dataevents_read_enabled",
+        "cloudtrail_s3_dataevents_write_enabled",
+        "cloudtrail_multi_region_enabled",
+        "cloudtrail_cloudwatch_logging_enabled",
+        "cloudwatch_log_group_retention_policy_specific_days_enabled",
+        "elbv2_logging_enabled",
+        "elb_logging_enabled",
+        "opensearch_service_domains_cloudwatch_logging_enabled",
+        "rds_instance_integration_cloudwatch_logs",
+        "redshift_cluster_audit_logging",
+        "s3_bucket_server_access_logging_enabled",
+        "securityhub_enabled",
+        "vpc_flow_logs_enabled",
+        "opensearch_service_domains_audit_logging_enabled",
+        "cloudtrail_cloudwatch_logging_enabled",
+        "acm_certificates_transparency_logs_enabled",
+        "apigatewayv2_api_access_logging_enabled",
+        "awslambda_function_invoke_api_operations_cloudtrail_logging_enabled",
+        "cloudfront_distributions_logging_enabled",
+        "cloudtrail_logs_s3_bucket_access_logging_enabled",
+        "directoryservice_directory_log_forwarding_enabled",
+        "eks_control_plane_logging_all_types_enabled",
+        "route53_public_hosted_zones_cloudwatch_logging_enabled"
+      ]
+    },
+    {
+      "Id": "secure_user_management_1",
+      "Name": "Secure User Management",
+      "Description": "RE shall ensure that Principle of least privilege shall be adopted for granting access to any resources for normal and admin/privileged accounts.",
+      "Attributes": [
+        {
+          "ItemId": "secure_user_management_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ec2_instance_profile_attached",
+        "iam_aws_attached_policy_no_administrative_privileges",
+        "iam_customer_attached_policy_no_administrative_privileges",
+        "iam_customer_unattached_policy_no_administrative_privileges",
+        "iam_inline_policy_no_administrative_privileges",
+        "opensearch_service_domains_internal_user_database_enabled"
+      ]
+    },
+    {
+      "Id": "secure_user_management_2",
+      "Name": "Secure User Management",
+      "Description": "RE shall ensure that Multi factor authentication shall be adopted for admin accounts.",
+      "Attributes": [
+        {
+          "ItemId": "secure_user_management_2",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "iam_password_policy_lowercase",
+        "iam_password_policy_minimum_length_14",
+        "iam_password_policy_number",
+        "iam_password_policy_reuse_24",
+        "iam_password_policy_symbol",
+        "iam_password_policy_uppercase",
+        "directoryservice_radius_server_security_protocol",
+        "directoryservice_supported_mfa_radius_enabled",
+        "iam_user_hardware_mfa_enabled",
+        "iam_user_mfa_enabled_console_access",
+        "iam_user_two_active_access_key",
+        "iam_user_no_setup_initial_access_key",
+        "opensearch_service_domains_use_cognito_authentication_for_kibana",
+        "sagemaker_notebook_instance_root_access_disabled",
+        "iam_avoid_root_usage"
+      ]
+    },
+    {
+      "Id": "internet_facing_interfaces_1",
+      "Name": "Internet facing interfaces",
+      "Description": "Any interface which is exposed to public at large on the internet in the form of a service/API/etc. is considered as internet facing interface. Adequate security controls such as IPS, Firewall, WAF, Anti DDOS, API gateways etc. should be in place",
+      "Attributes": [
+        {
+          "ItemId": "internet_facing_interfaces_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "apigateway_restapi_waf_acl_attached",
+        "elbv2_waf_acl_attached",
+        "route53_domains_privacy_protection_enabled",
+        "route53_domains_transferlock_enabled",
+        "shield_advanced_protection_in_associated_elastic_ips",
+        "shield_advanced_protection_in_classic_load_balancers",
+        "shield_advanced_protection_in_cloudfront_distributions",
+        "shield_advanced_protection_in_global_accelerators",
+        "shield_advanced_protection_in_internet_facing_load_balancers",
+        "shield_advanced_protection_in_route53_hosted_zones"
+      ]
+    },
+    {
+      "Id": "encryption_cryptographic_key_management_1",
+      "Name": "Encryption and Cryptographic Key Management",
+      "Description": "Data shall be encrypted at all lifecycle stages (at rest, in motion and in use), source or location to ensure the confidentiality, privacy and integrity.",
+      "Attributes": [
+        {
+          "ItemId": "encryption_cryptographic_key_management_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "acm_certificates_expiration_check",
+        "apigateway_restapi_client_certificate_enabled",
+        "cloudtrail_kms_encryption_enabled",
+        "dynamodb_tables_kms_cmk_encryption_enabled",
+        "ec2_ebs_volume_encryption",
+        "ec2_ebs_public_snapshot",
+        "ec2_ebs_volume_encryption",
+        "ec2_instance_public_ip",
+        "efs_encryption_at_rest_enabled",
+        "elbv2_insecure_ssl_ciphers",
+        "elb_ssl_listeners",
+        "emr_cluster_master_nodes_no_public_ip",
+        "opensearch_service_domains_encryption_at_rest_enabled",
+        "opensearch_service_domains_node_to_node_encryption_enabled",
+        "kms_cmk_rotation_enabled",
+        "awslambda_function_not_publicly_accessible",
+        "awslambda_function_url_public",
+        "cloudwatch_log_group_kms_encryption_enabled",
+        "rds_instance_storage_encrypted",
+        "rds_instance_no_public_access",
+        "rds_instance_storage_encrypted",
+        "rds_snapshots_public_access",
+        "redshift_cluster_audit_logging",
+        "redshift_cluster_public_access",
+        "s3_bucket_default_encryption",
+        "s3_bucket_default_encryption",
+        "s3_bucket_secure_transport_policy",
+        "s3_bucket_public_access",
+        "s3_bucket_policy_public_write_access",
+        "s3_bucket_public_access",
+        "sagemaker_notebook_instance_without_direct_internet_access_configured",
+        "sagemaker_notebook_instance_encryption_enabled",
+        "sns_topics_kms_encryption_at_rest_enabled",
+        "ec2_networkacl_allow_ingress_any_port"
+      ]
+    },
+    {
+      "Id": "network_security_1",
+      "Name": "Network Security",
+      "Description": "RE shall adopt the micro segmentation principle on cloud infrastructure. Only the essential communication channels between computing resources shall be allowed and the rest of the communication channels shall be blocked.",
+      "Attributes": [
+        {
+          "ItemId": "network_security_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ec2_ebs_public_snapshot",
+        "ec2_networkacl_allow_ingress_tcp_port_22",
+        "sagemaker_notebook_instance_without_direct_internet_access_configured",
+        "apigateway_restapi_authorizers_enabled",
+        "apigatewayv2_api_authorizers_enabled",
+        "s3_bucket_acl_prohibited",
+        "s3_bucket_no_mfa_delete",
+        "opensearch_service_domains_not_publicly_accessible",
+        "awslambda_function_not_publicly_accessible",
+        "apigateway_restapi_waf_acl_attached",
+        "cloudfront_distributions_using_waf",
+        "eks_control_plane_endpoint_access_restricted",
+        "sagemaker_models_network_isolation_enabled",
+        "sagemaker_models_vpc_settings_configured",
+        "sagemaker_notebook_instance_vpc_settings_configured",
+        "sagemaker_training_jobs_network_isolation_enabled",
+        "sagemaker_training_jobs_vpc_settings_configured",
+        "vpc_endpoint_connections_trust_boundaries",
+        "vpc_endpoint_services_allowed_principals_trust_boundaries",
+        "ec2_networkacl_allow_ingress_any_port",
+        "ec2_networkacl_allow_ingress_tcp_port_22",
+        "ec2_networkacl_allow_ingress_tcp_port_3389",
+        "ec2_securitygroup_allow_ingress_from_internet_to_any_port",
+        "ec2_securitygroup_allow_ingress_from_internet_to_port_mongodb_27017_27018",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_ftp_port_20_21",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_22",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_3389",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_cassandra_7199_9160_8888",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_elasticsearch_kibana_9200_9300_5601",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_kafka_9092",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_memcached_11211",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_mysql_3306",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_oracle_1521_2483",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_postgres_5432",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_redis_6379",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_sql_server_1433_1434",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_telnet_23",
+        "elbv2_waf_acl_attached",
+        "ec2_securitygroup_default_restrict_traffic",
+        "ec2_securitygroup_from_launch_wizard",
+        "ec2_securitygroup_not_used",
+        "ec2_securitygroup_with_many_ingress_egress_rules"
+      ]
+    },
+    {
+      "Id": "backup_recovery_solution_1",
+      "Name": "Backup And Recovery Solution",
+      "Description": "The RE shall ensure that a backup and recovery policy is in place to address the backup requirement of cloud deployments.",
+      "Attributes": [
+        {
+          "ItemId": "backup_recovery_solution_1",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "dynamodb_tables_pitr_enabled",
+        "efs_have_backup_enabled",
+        "rds_instance_backup_enabled",
+        "rds_instance_backup_enabled",
+        "redshift_cluster_automated_snapshot",
+        "s3_bucket_object_versioning"
+      ]
+    }
+  ]
+}
+
