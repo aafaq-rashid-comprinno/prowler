@@ -1,19 +1,26 @@
 #!/bin/bash
 set -e
 
+# Parse arguments to find output directory BEFORE running prowler
+OUTPUT_DIR="/tmp/prowler-output"
+for arg in "$@"; do
+    if [[ "$prev_arg" == "--output-directory" ]]; then
+        OUTPUT_DIR="$arg"
+        break
+    fi
+    prev_arg="$arg"
+done
+
+# Export for Python script
+export OUTPUT_DIR
+
+echo "Prowler will output to: $OUTPUT_DIR"
+
 # Run Prowler with all passed arguments using poetry
 cd /home/prowler
 poetry run prowler "$@"
 
-# Parse arguments to find output directory
-OUTPUT_DIR="/tmp/prowler-output"
-while [[ $# -gt 0 ]]; do
-    if [[ "$1" == "--output-directory" ]]; then
-        OUTPUT_DIR="$2"
-        break
-    fi
-    shift
-done
+echo "Starting CSV cleaning in: $OUTPUT_DIR"
 
 # Clean CSV files (remove newlines within fields)
 python3 << 'EOF'
