@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
 # Parse arguments to find output directory BEFORE running prowler
@@ -21,6 +21,11 @@ cd /home/prowler
 poetry run prowler "$@"
 
 echo "Starting CSV cleaning in: $OUTPUT_DIR"
+
+# Run Prowler with all passed arguments using poetry
+PROWLER_HOME="${PROWLER_HOME:-/home/prowler}"
+cd "$PROWLER_HOME"
+poetry run prowler "$@"
 
 # Clean CSV files (remove newlines within fields)
 python3 << 'EOF'
