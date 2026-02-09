@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+
 
 # Parse arguments to find output directory BEFORE running prowler
 OUTPUT_DIR="/tmp/prowler-output"
@@ -19,6 +19,7 @@ echo "Prowler will output to: $OUTPUT_DIR"
 # Run Prowler with all passed arguments using poetry
 cd /home/prowler
 poetry run prowler "$@"
+echo "Prowler exit code: $?"
 
 echo "Starting CSV cleaning in: $OUTPUT_DIR"
 
