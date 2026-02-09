@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+echo "Starting Prowler execution with arguments: $*"
 # Parse arguments to find output directory BEFORE running prowler
 OUTPUT_DIR="/tmp/prowler-output"
 prev_arg=""
