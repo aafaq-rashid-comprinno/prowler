@@ -57,12 +57,11 @@ USER prowler
 WORKDIR /home/prowler
 
 # Copy necessary files
-COPY --chown=prowler:prowler prowler/  /home/prowler/prowler/
-COPY --chown=prowler:prowler dashboard/ /home/prowler/dashboard/
-COPY --chown=prowler:prowler pyproject.toml /home/prowler
-COPY --chown=prowler:prowler README.md /home/prowler/
-COPY --chown=prowler:prowler prowler/providers/m365/lib/powershell/m365_powershell.py /home/prowler/prowler/providers/m365/lib/powershell/m365_powershell.py
-COPY --chown=prowler:prowler --chmod=755 prowler-wrapper.sh /home/prowler/prowler-wrapper.sh
+COPY prowler/  /home/prowler/prowler/
+COPY dashboard/ /home/prowler/dashboard/
+COPY pyproject.toml /home/prowler
+COPY README.md /home/prowler/
+COPY prowler/providers/m365/lib/powershell/m365_powershell.py /home/prowler/prowler/providers/m365/lib/powershell/m365_powershell.py
 
 # Install Python dependencies
 ENV HOME='/home/prowler'
@@ -82,4 +81,4 @@ RUN pip uninstall dash-html-components -y && \
     pip uninstall dash-core-components -y
 
 USER prowler
-ENTRYPOINT ["/home/prowler/prowler-wrapper.sh"]
+ENTRYPOINT ["poetry", "run", "prowler"]
