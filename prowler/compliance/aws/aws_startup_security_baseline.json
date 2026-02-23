@@ -1,0 +1,360 @@
+{
+    "Framework": "AWS_Startup_Security_Baseline",
+    "Version": "1.0",
+    "Name": "AWS Startup Security Baseline",
+    "Provider": "AWS",
+    "Description": "The AWS Startup Security Baseline (SSB) is a set of controls that create a minimum foundation for businesses to build securely on AWS without decreasing their agility.",
+    "Requirements": [
+        {
+            "Id": "ACCT.01",
+            "Name": "Set account-level contacts to valid email distribution lists",
+            "Description": "When setting up primary and alternate contacts for your AWS account, use an email distribution list instead of an individual’s email address.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.01",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "account_security_contact_information_is_registered",
+                "account_maintain_current_contact_details",
+                "account_security_questions_are_registered_in_the_aws_account"
+            ]
+        },
+        {
+            "Id": "ACCT.02",
+            "Name": "Restrict use of the root user",
+            "Description": "The root user is the most privileged user in an AWS account, with full administrative access to all resources within the account, and in some cases cannot be constrained by security policies. Deactivating programmatic access to the root user, establishing appropriate controls for the root user, and avoiding routine use of the root user helps reduce the risk of inadvertent exposure of the root credentials and subsequent compromise of the cloud environment.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.02",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "iam_root_hardware_mfa_enabled",
+                "iam_root_mfa_enabled",
+                "iam_no_root_access_key"
+            ]
+        },
+        {
+            "Id": "ACCT.02",
+            "Name": "Restrict use of the root user",
+            "Description": "The root user is the most privileged user in an AWS account, with full administrative access to all resources within the account, and in some cases cannot be constrained by security policies. Deactivating programmatic access to the root user, establishing appropriate controls for the root user, and avoiding routine use of the root user helps reduce the risk of inadvertent exposure of the root credentials and subsequent compromise of the cloud environment.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.02",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "iam_root_hardware_mfa_enabled",
+                "iam_root_mfa_enabled",
+                "iam_no_root_access_key"
+            ]
+        },
+        {
+            "Id": "ACCT.03",
+            "Name": "Configure console access for each user",
+            "Description": "IAM user should be created for each person who needs to access the AWS Management Console.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.03",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": []
+        },
+        {
+            "Id": "ACCT.04",
+            "Name": "Assign permissions",
+            "Description": "Configure user permissions in the account by assigning policies to their IAM identity (user group or role).",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.04",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "iam_policy_allows_privilege_escalation",
+                "iam_policy_attached_only_to_group_or_roles"
+            ]
+        },
+        {
+            "Id": "ACCT.05",
+            "Name": "Require multi-factor authentication (MFA) to log",
+            "Description": "With MFA, users have a device that generates a response to an authentication challenge. Each user's credentials and device-generated response are required to complete the sign-in process. As a security best practice, enable MFA for AWS account access, especially for long-term credentials such as the account root user and IAM users.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.05",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "iam_user_mfa_enabled_console_access",
+                "iam_root_hardware_mfa_enabled",
+                "iam_root_mfa_enabled"
+            ]
+        },
+        {
+            "Id": "ACCT.06",
+            "Name": "Enforce a password policy",
+            "Description": "Users log in to the AWS Management Console by providing sign-in credentials, and MFA is recommended. Require that passwords adhere to a strong password policy to help prevent discovery through brute force or social engineering.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.06",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "iam_password_policy_lowercase",
+                "iam_password_policy_minimum_length_14",
+                "iam_password_policy_number",
+                "iam_password_policy_reuse_24",
+                "iam_password_policy_symbol",
+                "iam_password_policy_uppercase"
+            ]
+        },
+        {
+            "Id": "ACCT.07",
+            "Name": "Deliver CloudTrail logs to a protected S3 bucket",
+            "Description": "Actions taken by users, roles, and services in your AWS account are recorded as events in AWS CloudTrail. CloudTrail is enabled by default, and in the CloudTrail console, you can access 90 days of event history information.To retain CloudTrail history beyond 90 days with additional data, you create a new trail that delivers log files to an Amazon Simple Storage Service (Amazon S3) bucket for all event types. When you create a trail in the CloudTrail console, you create a multi-region trail.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.07",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "cloudtrail_multi_region_enabled",
+                "cloudtrail_kms_encryption_enabled",
+                "cloudtrail_log_file_validation_enabled",
+                "cloudtrail_cloudwatch_logging_enabled"
+            ]
+        },
+        {
+            "Id": "ACCT.08",
+            "Name": "Prevent public access to private S3 buckets",
+            "Description": "Buckets created on or after April 28, 2023 have the Block Public Access setting enabled by default. For buckets created before this date, users might misconfigure the bucket policy and unintentionally grant access to the public. You can prevent this misconfiguration by enabling the Block Public Access setting for each bucket.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.08",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "s3_bucket_policy_public_write_access",
+                "s3_bucket_public_access"
+            ]
+        },
+        {
+            "Id": "ACCT.09",
+            "Name": "Delete unused VPCs, subnets, and security groups",
+            "Description": "To reduce the opportunity for security issues, delete or turn off any resources that are not being used.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.09",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": []
+        },
+        {
+            "Id": "ACCT.10",
+            "Name": "Configure AWS Budgets to monitor your spending",
+            "Description": "AWS Budgets enable monitoring of monthly costs and usage with notifications when costs are forecasted to exceed target thresholds.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.10",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": []
+        },
+        {
+            "Id": "ACCT.11",
+            "Name": "Enable and respond to GuardDuty notifications",
+            "Description": "Amazon GuardDuty is a threat-detection service that continuously monitors for malicious or unauthorized behavior to help protect your AWS accounts, workloads, and data.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.11",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "guardduty_is_enabled"
+            ]
+        },
+        {
+            "Id": "ACCT.12",
+            "Name": "Monitor for and resolve high-risk issues by using Trusted Advisor",
+            "Description": "AWS Trusted Advisor passively scans your AWS infrastructure for high-risk or high-impact issues related to security, performance, cost, and reliability.",
+            "Attributes": [
+                {
+                    "ItemId": "ACCT.12",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": []
+        },
+        {
+            "Id": "WKLD.01",
+            "Name": "Use IAM roles for compute environment permissions",
+            "Description": "In AWS Identity and Access Management (IAM), a role represents a set of permissions that can be assumed by a person or service for a configurable period of time.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.01",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "ec2_instance_profile_attached"
+            ]
+        },
+        {
+            "Id": "WKLD.02",
+            "Name": "Restrict credential usage scope with resource-based policies permissions",
+            "Description": "Restrict credential usage scope with resource-based policies permissions",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.02",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "iam_aws_attached_policy_no_administrative_privileges",
+                "iam_customer_attached_policy_no_administrative_privileges",
+                "iam_inline_policy_no_administrative_privileges"
+            ]
+        },
+        {
+            "Id": "WKLD.03",
+            "Name": "Use ephemeral secrets or a secrets-management service",
+            "Description": "Application secrets consist largely of credentials, such as key pairs, access tokens, digital certificates, and sign-in credentials. The application uses these secrets to gain access to other services it depends upon, such as a database.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.03",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "ecs_task_definitions_no_environment_secrets",
+                "secretsmanager_automatic_rotation_enabled"
+            ]
+        },
+        {
+            "Id": "WKLD.04",
+            "Name": "Prevent application secrets from being exposed",
+            "Description": "During local development, application secrets can be stored in local configuration or code files and accidentally checked-in to source code repositories. Unsecured repositories hosted on public service providers can be subject to unauthorized access and subsequent discovery of these secrets. Use available tools to prevent secrets from being checked in. Incorporate checks for exposed secrets as part of your manual code review processes.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.04",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": []
+        },
+        {
+            "Id": "WKLD.06",
+            "Name": "Use Systems Manager instead of SSH or RDP",
+            "Description": "Use Session Manager instead of running EC2 instances in public subnets, running jump boxes, or running bastion hosts.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.06",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "ec2_instance_managed_by_ssm"
+            ]
+        },
+        {
+            "Id": "WKLD.08",
+            "Name": "Encrypt Amazon EBS volumes",
+            "Description": "Enforce encryption of Amazon Elastic Block Store (Amazon EBS) volumes as the default behavior in your AWS account.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.08",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "ec2_ebs_default_encryption"
+            ]
+        },
+        {
+            "Id": "WKLD.09",
+            "Name": "Encrypt Amazon RDS databases",
+            "Description": "Enable encryption of Amazon Relational Database Service (Amazon RDS) databases. This encryption is performed at the underlying volume level and has the same IOPS performance as unencrypted volumes with a minimal effect on latency.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.09",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "rds_instance_storage_encrypted"
+            ]
+        },
+        {
+            "Id": "WKLD.11",
+            "Name": "Restrict network access by using security groups",
+            "Description": "Use security groups to control traffic to EC2 instances, RDS databases, and other supported resources. Security groups act as a virtual firewall that can be applied to any group of related resources in order to consistently define rules for allowing inbound and outbound traffic.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.11",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "ec2_securitygroup_allow_ingress_from_internet_to_any_port",
+                "ec2_securitygroup_allow_ingress_from_internet_to_port_mongodb_27017_27018",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_ftp_port_20_21",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_22",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_3389",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_cassandra_7199_9160_8888",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_elasticsearch_kibana_9200_9300_5601",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_kafka_9092",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_memcached_11211",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_mysql_3306",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_oracle_1521_2483",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_postgres_5432",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_redis_6379",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_sql_server_1433_1434",
+                "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_telnet_23"
+            ]
+        },
+        {
+            "Id": "WKLD.12",
+            "Name": "Require HTTPS for all public web endpoints",
+            "Description": "Require HTTPS to provide additional credibility to your web endpoints, allow your endpoints to use certificates to prove their identity, and confirm that all traffic between your endpoint and connected clients is encrypted. For public websites, this provides the additional benefit of higher search engine ranking.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.12",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "elb_insecure_ssl_ciphers",
+                "elb_ssl_listeners",
+                "elbv2_insecure_ssl_ciphers",
+                "elbv2_ssl_listeners"
+            ]
+        },
+        {
+            "Id": "WKLD.14",
+            "Name": "Use edge-protection services for public endpoints",
+            "Description": "Rather than serve traffic direct from compute services such as EC2 instances or containers, use an edge-protection service. This provides an additional layer of security between incoming traffic from the internet and your resources that serve that traffic. These services can filter unwanted traffic, enforce encryption, and apply routing or other rules, such as load balancing, before traffic reaches your internal resources.",
+            "Attributes": [
+                {
+                    "ItemId": "WKLD.14",
+                    "Service": "aws"
+                }
+            ],
+            "Checks": [
+                "apigateway_restapi_waf_acl_attached",
+                "elbv2_waf_acl_attached"
+            ]
+        }
+    ]
+}
