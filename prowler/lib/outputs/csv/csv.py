@@ -36,6 +36,7 @@ def sanitize_code_csv_value(value):
         .replace("\t", "    ")  # keep indentation
     )
 
+
 class CSV(Output):
     def transform(self, findings: List[Finding]) -> None:
         """Transforms the findings into the CSV format."""
