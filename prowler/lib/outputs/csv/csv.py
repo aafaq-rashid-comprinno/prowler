@@ -23,17 +23,14 @@ def sanitize_csv_value(value):
 def sanitize_code_csv_value(value):
     if value is None:
         return ""
-
     if isinstance(value, (list, dict)):
         value = str(value)
-
-    # Preserve formatting but remove CSV-breaking chars
     return (
         str(value)
         .replace("\r\n", "\\n")
         .replace("\n", "\\n")
         .replace("\r", "")
-        .replace("\t", "    ")  # keep indentation
+        .replace("\t", "    ")
     )
 
 
