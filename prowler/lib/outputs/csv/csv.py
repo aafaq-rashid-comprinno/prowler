@@ -14,25 +14,12 @@ def sanitize_csv_value(value):
         value = str(value)
     return (
         str(value)
-        .replace("\r\n", " ")
-        .replace("\n", " ")
-        .replace("\r", " ")
-        .replace("\t", " ")
+        .replace("\r\n", "_R_N_")
+        .replace("\n", "_N_")
+        .replace("\r", "_R_")
+        .replace("\t", "_T_")
         .strip()
     )
-def sanitize_code_csv_value(value):
-    if value is None:
-        return ""
-    if isinstance(value, (list, dict)):
-        value = str(value)
-    return (
-        str(value)
-        .replace("\r\n", "\\n")
-        .replace("\n", "\\n")
-        .replace("\r", "")
-        .replace("\t", "    ")
-    )
-
 
 class CSV(Output):
     def transform(self, findings: List[Finding]) -> None:
@@ -108,16 +95,16 @@ class CSV(Output):
                 finding_dict["REMEDIATION_RECOMMENDATION_URL"] = sanitize_csv_value(
                     finding.metadata.Remediation.Recommendation.Url
                 )
-                finding_dict["REMEDIATION_CODE_NATIVEIAC"] = sanitize_code_csv_value(
+                finding_dict["REMEDIATION_CODE_NATIVEIAC"] = sanitize_csv_value(
                     finding.metadata.Remediation.Code.NativeIaC
                 )
-                finding_dict["REMEDIATION_CODE_TERRAFORM"] = sanitize_code_csv_value(
+                finding_dict["REMEDIATION_CODE_TERRAFORM"] = sanitize_csv_value(
                     finding.metadata.Remediation.Code.Terraform
                 )
-                finding_dict["REMEDIATION_CODE_CLI"] = sanitize_code_csv_value(
+                finding_dict["REMEDIATION_CODE_CLI"] = sanitize_csv_value(
                     finding.metadata.Remediation.Code.CLI
                 )
-                finding_dict["REMEDIATION_CODE_OTHER"] = sanitize_code_csv_value(
+                finding_dict["REMEDIATION_CODE_OTHER"] = sanitize_csv_value(
                     finding.metadata.Remediation.Code.Other
                 )
                 finding_dict["COMPLIANCE"] = sanitize_csv_value(
