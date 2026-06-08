@@ -1,0 +1,1454 @@
+{
+  "Framework": "DPDP-2025",
+  "Name": "DPDP Act 2023 - Digital Personal Data Protection Act",
+  "Version": "1",
+  "Provider": "AWS",
+  "Description": "The Digital Personal Data Protection Act, 2023 (DPDP Act) establishes India's framework for personal data protection, prescribing obligations for Data Fiduciaries regarding consent, security safeguards, breach reporting, retention, and data principal rights.",
+  "Requirements": [
+    {
+      "Id": "rule_3",
+      "Name": "Provide clear, standalone privacy notice prior to processing.",
+      "Description": "Is a standalone, clear privacy notice provided before collection?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_3_i",
+      "Name": "Specify categories of personal data collected.",
+      "Description": "Does the notice list all categories of personal data collected?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3_i",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_3_ii",
+      "Name": "Specify purpose(s) of processing.",
+      "Description": "Does the notice clearly state each processing purpose?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3_ii",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_3_iii",
+      "Name": "Explain consent withdrawal process with equivalent ease.",
+      "Description": "Can Data Principals withdraw consent with the same/easier steps than giving it?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3_iii",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_3_iv",
+      "Name": "Explain rights exercise process and complaint channels.",
+      "Description": "Does the notice provide rights workflow and complaint contact (Board + internal)?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3_iv",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_3_v",
+      "Name": "Provide language options (English + Eighth Schedule languages).",
+      "Description": "Is the notice available in English + relevant Indian languages?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3_v",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_3_vi",
+      "Name": "Provide contact of DPO/authorised person.",
+      "Description": "Does the notice publish DPO/contact email and address?",
+      "Attributes": [
+        {
+          "ItemId": "rule_3_vi",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "account_maintain_current_contact_details",
+        "account_security_contact_information_is_registered"
+      ]
+    },
+    {
+      "Id": "rule_6_1",
+      "Name": "Notify Board & affected Data Principals of personal data breach.",
+      "Description": "Is there a breach notification SOP with timelines & templates?",
+      "Attributes": [
+        {
+          "ItemId": "rule_6_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "guardduty_is_enabled",
+        "securityhub_enabled",
+        "ssmincidents_enabled_with_plans"
+      ]
+    },
+    {
+      "Id": "rule_6_2",
+      "Name": "Maintain a breach log and corrective action records.",
+      "Description": "Are all incidents logged with root cause and remediation?",
+      "Attributes": [
+        {
+          "ItemId": "rule_6_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudtrail_multi_region_enabled",
+        "cloudwatch_log_group_retention_policy_specific_days_enabled"
+      ]
+    },
+    {
+      "Id": "rule_6_3",
+      "Name": "Execute urgent remedial/mitigation measures when directed.",
+      "Description": "Can urgent mitigations be executed and evidenced?",
+      "Attributes": [
+        {
+          "ItemId": "rule_6_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ssmincidents_enabled_with_plans",
+        "cloudwatch_alarm_actions_enabled",
+        "guardduty_is_enabled"
+      ]
+    },
+    {
+      "Id": "rule_7_a",
+      "Name": "Specified purpose provided voluntarily by Data Principal (opt-out possible).",
+      "Description": "Is voluntary-provided data processed only for the specified purpose unless DP opts-out?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_a",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_b",
+      "Name": "State benefits/services where consent previously given / from notified databases.",
+      "Description": "Are government benefits processed per policy/law with records?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_b",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_c",
+      "Name": "State functions, sovereignty/security.",
+      "Description": "Is processing limited to the lawful function with minimization?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_c",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_d",
+      "Name": "Legal obligations to disclose to State.",
+      "Description": "Is disclosure documented and limited to legal scope?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_d",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_e",
+      "Name": "Compliance with judgments/orders (including foreign civil claims).",
+      "Description": "Are court/legal orders tracked and fulfilled accurately?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_e",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_f",
+      "Name": "Medical emergency (life/health threat).",
+      "Description": "Is emergency processing SOP defined and logged?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_f",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_g",
+      "Name": "Epidemics/public health threat measures.",
+      "Description": "Are public health processing controls documented?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_g",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_h",
+      "Name": "Disaster/breakdown of public order.",
+      "Description": "Are disaster-response processing logs maintained?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_h",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_7_i",
+      "Name": "Employment-related purposes and safeguarding employer from loss/liability.",
+      "Description": "Is employee processing documented with confidentiality controls?",
+      "Attributes": [
+        {
+          "ItemId": "rule_7_i",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_8_1",
+      "Name": "Data Fiduciary responsible for compliance incl. processors.",
+      "Description": "Is accountability documented (RACI) for DF and processors?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_account_part_of_organizations",
+        "config_recorder_all_regions_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_2",
+      "Name": "Use Data Processor only under valid contract.",
+      "Description": "Do all processors have signed DPAs before processing?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_account_part_of_organizations"
+      ]
+    },
+    {
+      "Id": "rule_8_3",
+      "Name": "Ensure data accuracy when used for decisions/disclosure.",
+      "Description": "Are data validation steps enforced?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudtrail_log_file_validation_enabled",
+        "s3_bucket_object_versioning"
+      ]
+    },
+    {
+      "Id": "rule_8_4",
+      "Name": "Implement appropriate TOMs to ensure observance.",
+      "Description": "Is there an ISMS and periodic internal audit?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_4",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "securityhub_enabled",
+        "config_recorder_all_regions_enabled",
+        "guardduty_is_enabled",
+        "accessanalyzer_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5",
+      "Name": "Protect personal data using reasonable security safeguards.",
+      "Description": "Are baseline security controls implemented (access control, encryption, backups)?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ec2_ebs_volume_encryption",
+        "s3_bucket_default_encryption",
+        "rds_instance_storage_encrypted",
+        "cloudtrail_multi_region_enabled",
+        "guardduty_is_enabled",
+        "iam_aws_attached_policy_no_administrative_privileges",
+        "backup_plans_exist",
+        "ec2_securitygroup_default_restrict_traffic",
+        "ec2_securitygroup_allow_ingress_from_internet_to_all_ports",
+        "rds_instance_no_public_access",
+        "rds_instance_deletion_protection",
+        "s3_account_level_public_access_blocks",
+        "s3_bucket_public_access"
+      ]
+    },
+    {
+      "Id": "rule_8_6",
+      "Name": "Intimate personal data breach to Board and affected DPs.",
+      "Description": "Have previous breaches been intimated within required form/manner?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_6",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "guardduty_is_enabled",
+        "securityhub_enabled",
+        "ssmincidents_enabled_with_plans"
+      ]
+    },
+    {
+      "Id": "rule_8_7_a",
+      "Name": "Erase personal data when consent withdrawn or purpose served.",
+      "Description": "Do deletion workflows trigger upon withdrawal or purpose completion?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_7_a",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_lifecycle_enabled",
+        "cloudwatch_log_group_retention_policy_specific_days_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_7_b",
+      "Name": "Cause processors to erase data supplied for processing.",
+      "Description": "Are processors instructed and verified for deletion?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_7_b",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_lifecycle_enabled",
+        "organizations_account_part_of_organizations"
+      ]
+    },
+    {
+      "Id": "rule_8_8",
+      "Name": "Define inactivity period after which purpose deemed not served.",
+      "Description": "Is inactivity threshold configured as prescribed for your class?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_8",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_lifecycle_enabled",
+        "cloudwatch_log_group_retention_policy_specific_days_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_9",
+      "Name": "Publish DPO/business contact info.",
+      "Description": "Is DPO/contact info published and accurate?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_9",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "account_maintain_current_contact_details",
+        "account_security_contact_information_is_registered",
+        "account_maintain_different_contact_details_to_security_billing_and_operations"
+      ]
+    },
+    {
+      "Id": "rule_8_10",
+      "Name": "Establish effective grievance redressal mechanism.",
+      "Description": "Is a helpdesk/ticketing system available to Data Principals?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_10",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "account_security_contact_information_is_registered"
+      ]
+    },
+    {
+      "Id": "rule_8_11",
+      "Name": "Clarifies DP not approaching during inactivity window.",
+      "Description": "Is inactivity handling aligned with rule explanation?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_11",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_9_1",
+      "Name": "Obtain verifiable parental/guardian consent before processing child's data.",
+      "Description": "Is parental consent verified (KYC/token) before processing?",
+      "Attributes": [
+        {
+          "ItemId": "rule_9_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cognito_user_pool_mfa_enabled",
+        "cognito_user_pool_advanced_security_enabled"
+      ]
+    },
+    {
+      "Id": "rule_9_2",
+      "Name": "Avoid detrimental processing affecting a child's well-being.",
+      "Description": "Was a child-impact assessment performed?",
+      "Attributes": [
+        {
+          "ItemId": "rule_9_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_9_3",
+      "Name": "No tracking/behavioural monitoring or targeted ads to children.",
+      "Description": "Are tracking/ad systems disabled for child users?",
+      "Attributes": [
+        {
+          "ItemId": "rule_9_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudfront_distributions_using_waf",
+        "wafv2_webacl_with_rules",
+        "wafv2_webacl_logging_enabled",
+        "cloudfront_distributions_logging_enabled"
+      ]
+    },
+    {
+      "Id": "rule_9_4",
+      "Name": "Exemptions/classes/purposes may be prescribed.",
+      "Description": "Are any exemptions applicable documented?",
+      "Attributes": [
+        {
+          "ItemId": "rule_9_4",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_9_5",
+      "Name": "Govt may notify safe-processing age exemptions for specific DFs.",
+      "Description": "If notified, is exemption scope implemented and evidenced?",
+      "Attributes": [
+        {
+          "ItemId": "rule_9_5",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_10_1",
+      "Name": "Govt may notify SDF based on factors (volume, sensitivity, risk, etc.).",
+      "Description": "Has SDF designation been assessed/notified?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "macie_is_enabled",
+        "config_recorder_all_regions_enabled"
+      ]
+    },
+    {
+      "Id": "rule_10_2_a_i",
+      "Name": "DPO represents SDF under the Act.",
+      "Description": "Is a DPO formally appointed to represent the SDF?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_a_i",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_10_2_a_ii",
+      "Name": "DPO must be based in India.",
+      "Description": "Is the DPO physically based in India?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_a_ii",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_10_2_a_iii",
+      "Name": "DPO responsible to Board/similar governing body.",
+      "Description": "Does the DPO report to Board/GC-level?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_a_iii",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_10_2_a_iv",
+      "Name": "DPO is point of contact for grievance redressal.",
+      "Description": "Is DPO listed as grievance PoC?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_a_iv",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_10_2_b",
+      "Name": "Appoint independent Data Auditor for data audit.",
+      "Description": "Is an independent data auditor appointed and engaged annually?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_b",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "config_recorder_all_regions_enabled",
+        "securityhub_enabled"
+      ]
+    },
+    {
+      "Id": "rule_10_2_c_i",
+      "Name": "Periodic DPIA describing rights, purpose, risk, mitigation.",
+      "Description": "Are DPIAs performed for high-risk processing at least annually?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_c_i",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "accessanalyzer_enabled"
+      ]
+    },
+    {
+      "Id": "rule_10_2_c_ii",
+      "Name": "Periodic audit.",
+      "Description": "Are periodic audits completed and tracked to closure?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_c_ii",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "config_recorder_all_regions_enabled",
+        "securityhub_enabled",
+        "guardduty_is_enabled"
+      ]
+    },
+    {
+      "Id": "rule_10_2_c_iii",
+      "Name": "Other prescribed measures.",
+      "Description": "Are any additional mandated measures implemented?",
+      "Attributes": [
+        {
+          "ItemId": "rule_10_2_c_iii",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "securityhub_enabled",
+        "config_recorder_all_regions_enabled"
+      ]
+    },
+    {
+      "Id": "rule_11_1_a",
+      "Name": "Provide summary of personal data processed and processing activities.",
+      "Description": "Can DPs obtain a summary of data & processing activities?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_1_a",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "macie_is_enabled",
+        "cloudtrail_multi_region_enabled",
+        "macie_automated_sensitive_data_discovery_enabled"
+      ]
+    },
+    {
+      "Id": "rule_11_1_b",
+      "Name": "Disclose identities of all DFs/Processors with whom data shared.",
+      "Description": "Does the DSAR include list of recipients & data categories shared?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_1_b",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_account_part_of_organizations",
+        "cloudtrail_multi_region_enabled"
+      ]
+    },
+    {
+      "Id": "rule_11_1_c",
+      "Name": "Provide other prescribed information related to DP's personal data.",
+      "Description": "Is all additional required info provided upon request?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_1_c",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "macie_is_enabled",
+        "cloudtrail_multi_region_enabled"
+      ]
+    },
+    {
+      "Id": "rule_11_2",
+      "Name": "Law-enforcement sharing carve-out.",
+      "Description": "Are LEA requests handled via controlled lawful process?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudtrail_multi_region_enabled",
+        "cloudtrail_log_file_validation_enabled"
+      ]
+    },
+    {
+      "Id": "rule_12_1",
+      "Name": "Right to correction, completion, updating, erasure (post-consent).",
+      "Description": "Is there a workflow to correct/complete/update/erase data?",
+      "Attributes": [
+        {
+          "ItemId": "rule_12_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_object_versioning",
+        "s3_bucket_lifecycle_enabled"
+      ]
+    },
+    {
+      "Id": "rule_12_2_a",
+      "Name": "Correct inaccurate or misleading personal data.",
+      "Description": "Are inaccuracies corrected within SLA?",
+      "Attributes": [
+        {
+          "ItemId": "rule_12_2_a",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_object_versioning"
+      ]
+    },
+    {
+      "Id": "rule_12_2_b",
+      "Name": "Complete incomplete personal data.",
+      "Description": "Are incompletenesses completed within SLA?",
+      "Attributes": [
+        {
+          "ItemId": "rule_12_2_b",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_object_versioning"
+      ]
+    },
+    {
+      "Id": "rule_12_2_c",
+      "Name": "Update personal data.",
+      "Description": "Are updates processed and recorded?",
+      "Attributes": [
+        {
+          "ItemId": "rule_12_2_c",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_object_versioning",
+        "cloudtrail_multi_region_enabled"
+      ]
+    },
+    {
+      "Id": "rule_12_3",
+      "Name": "Erase personal data unless retention necessary by law.",
+      "Description": "Is erasure honored unless legal retention applies?",
+      "Attributes": [
+        {
+          "ItemId": "rule_12_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_lifecycle_enabled",
+        "s3_bucket_object_lock",
+        "ecr_repositories_lifecycle_policy_enabled"
+      ]
+    },
+    {
+      "Id": "rule_13_1",
+      "Name": "Provide readily available grievance redressal.",
+      "Description": "Is a grievance channel available online and monitored?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_1",
+          "Section": "Data Fiduciary/Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "account_security_contact_information_is_registered"
+      ]
+    },
+    {
+      "Id": "rule_13_2",
+      "Name": "Respond to grievances within prescribed period.",
+      "Description": "Are grievances answered within the prescribed SLA?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_2",
+          "Section": "Data Fiduciary/Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_13_3",
+      "Name": "Exhaust internal grievance before Board.",
+      "Description": "Do responses state escalation path and Board recourse?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_14_1",
+      "Name": "Allow nomination for post-death/incapacity rights.",
+      "Description": "Can DPs nominate another individual and is it recorded?",
+      "Attributes": [
+        {
+          "ItemId": "rule_14_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_14_2",
+      "Name": "Define incapacity (unsoundness/infirmity).",
+      "Description": "Is incapacity handling documented?",
+      "Attributes": [
+        {
+          "ItemId": "rule_14_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_15_a_e",
+      "Name": "Data Principal duties (lawful exercise, no impersonation, no suppression, authentic info).",
+      "Description": "Does the DF's T&C/UX inform DPs of their duties under the Act?",
+      "Attributes": [
+        {
+          "ItemId": "rule_15_a_e",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cognito_user_pool_mfa_enabled",
+        "cognito_user_pool_blocks_compromised_credentials_sign_in_attempts"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_1",
+      "Name": "Access Control",
+      "Description": "Are RBAC and least privilege enforced across systems?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_1",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "iam_aws_attached_policy_no_administrative_privileges",
+        "iam_customer_attached_policy_no_administrative_privileges",
+        "iam_inline_policy_no_administrative_privileges",
+        "iam_user_mfa_enabled_console_access",
+        "iam_root_mfa_enabled",
+        "iam_no_root_access_key",
+        "iam_avoid_root_usage",
+        "iam_password_policy_minimum_length_14",
+        "iam_password_policy_lowercase",
+        "iam_password_policy_number",
+        "iam_password_policy_symbol",
+        "iam_password_policy_uppercase",
+        "iam_policy_attached_only_to_group_or_roles",
+        "iam_rotate_access_key_90_days",
+        "iam_user_accesskey_unused",
+        "iam_user_console_access_unused",
+        "iam_root_hardware_mfa_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_2",
+      "Name": "Encryption in Transit",
+      "Description": "Is TLS enforced for all external/internal transfers?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_2",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_secure_transport_policy",
+        "elb_ssl_listeners",
+        "elbv2_ssl_listeners",
+        "elbv2_insecure_ssl_ciphers",
+        "opensearch_service_domains_https_communications_enforced",
+        "opensearch_service_domains_node_to_node_encryption_enabled",
+        "rds_instance_transport_encrypted",
+        "redshift_cluster_in_transit_encryption_enabled",
+        "apigateway_restapi_client_certificate_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_3",
+      "Name": "Encryption at Rest",
+      "Description": "Is encryption at rest enabled for all data stores?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_3",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ec2_ebs_volume_encryption",
+        "ec2_ebs_default_encryption",
+        "s3_bucket_default_encryption",
+        "rds_instance_storage_encrypted",
+        "dynamodb_tables_kms_cmk_encryption_enabled",
+        "efs_encryption_at_rest_enabled",
+        "opensearch_service_domains_encryption_at_rest_enabled",
+        "cloudwatch_log_group_kms_encryption_enabled",
+        "sns_topics_kms_encryption_at_rest_enabled",
+        "kms_cmk_rotation_enabled",
+        "sagemaker_notebook_instance_encryption_enabled",
+        "backup_vaults_encrypted",
+        "cloudtrail_kms_encryption_enabled",
+        "redshift_cluster_encrypted_at_rest",
+        "ec2_ebs_snapshots_encrypted",
+        "rds_snapshots_encrypted",
+        "kinesis_stream_encrypted_at_rest",
+        "firehose_stream_encrypted_at_rest",
+        "glue_data_catalogs_metadata_encryption_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_4",
+      "Name": "Backup & Recovery",
+      "Description": "Are backups encrypted, tested, and retained per policy?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_4",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "rds_instance_backup_enabled",
+        "dynamodb_tables_pitr_enabled",
+        "efs_have_backup_enabled",
+        "s3_bucket_object_versioning",
+        "backup_plans_exist",
+        "backup_vaults_exist",
+        "redshift_cluster_automated_snapshot",
+        "ec2_ebs_volume_snapshots_exists",
+        "rds_instance_protected_by_backup_plan"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_5",
+      "Name": "Logging & Monitoring",
+      "Description": "Are security logs collected/retained and alerts monitored?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_5",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudtrail_multi_region_enabled",
+        "cloudtrail_s3_dataevents_read_enabled",
+        "cloudtrail_s3_dataevents_write_enabled",
+        "cloudtrail_cloudwatch_logging_enabled",
+        "cloudwatch_log_group_retention_policy_specific_days_enabled",
+        "vpc_flow_logs_enabled",
+        "guardduty_is_enabled",
+        "securityhub_enabled",
+        "s3_bucket_server_access_logging_enabled",
+        "elbv2_logging_enabled",
+        "elb_logging_enabled",
+        "rds_instance_integration_cloudwatch_logs",
+        "redshift_cluster_audit_logging",
+        "cloudtrail_log_file_validation_enabled",
+        "apigateway_restapi_logging_enabled",
+        "cloudtrail_multi_region_enabled_logging_management_events",
+        "cloudtrail_insights_exist"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_6",
+      "Name": "Vulnerability Management",
+      "Description": "Are periodic VA/PT scans performed and remediated?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_6",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ssm_managed_compliant_patching",
+        "rds_instance_minor_version_upgrade_enabled",
+        "guardduty_no_high_severity_findings",
+        "inspector2_is_enabled",
+        "redshift_cluster_automatic_upgrades",
+        "ec2_instance_imdsv2_enabled",
+        "inspector2_active_findings_exist",
+        "ec2_instance_with_outdated_ami"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_7",
+      "Name": "Incident Response",
+      "Description": "Is IR playbook tested with tabletop exercises?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_7",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "guardduty_is_enabled",
+        "securityhub_enabled",
+        "ssmincidents_enabled_with_plans",
+        "cloudwatch_alarm_actions_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_8",
+      "Name": "Third-Party Risk",
+      "Description": "Are vendors assessed and monitored for data protection?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_8",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "ec2_instance_managed_by_ssm",
+        "organizations_account_part_of_organizations",
+        "organizations_opt_out_ai_services_policy",
+        "organizations_tags_policies_enabled_and_attached"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_9",
+      "Name": "Data Minimisation",
+      "Description": "Is only necessary data collected and retained?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_9",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_lifecycle_enabled",
+        "cloudwatch_log_group_retention_policy_specific_days_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_10",
+      "Name": "Secure SDLC",
+      "Description": "Are privacy/security controls integrated in SDLC?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_10",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "codebuild_project_source_repo_url_no_sensitive_credentials",
+        "codebuild_project_no_secrets_in_variables"
+      ]
+    },
+    {
+      "Id": "rule_11_12_req_1",
+      "Name": "DSAR Identity Verification",
+      "Description": "Is identity verified before fulfilling DSARs?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_12_req_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cognito_user_pool_mfa_enabled",
+        "cognito_user_pool_advanced_security_enabled"
+      ]
+    },
+    {
+      "Id": "rule_11_12_req_2",
+      "Name": "DSAR SLA",
+      "Description": "Are DSARs fulfilled within prescribed SLA?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_12_req_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_11_12_req_3",
+      "Name": "DSAR Redaction",
+      "Description": "Are third-party details redacted appropriately?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_12_req_3",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_11_12_req_4",
+      "Name": "Portability Export",
+      "Description": "Is data export provided in structured, machine-readable form?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_12_req_4",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_11_12_req_5",
+      "Name": "Erasure Propagation",
+      "Description": "Is erasure propagated to all processors/recipients?",
+      "Attributes": [
+        {
+          "ItemId": "rule_11_12_req_5",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_lifecycle_enabled",
+        "organizations_account_part_of_organizations"
+      ]
+    },
+    {
+      "Id": "rule_13_g_1",
+      "Name": "Ticketing",
+      "Description": "Is a ticketing system available for grievances?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_g_1",
+          "Section": "Data Fiduciary/Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_13_g_2",
+      "Name": "SLA",
+      "Description": "Are response/resolution SLAs met?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_g_2",
+          "Section": "Data Fiduciary/Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_13_g_3",
+      "Name": "Escalation",
+      "Description": "Is there an escalation matrix up to DPO?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_g_3",
+          "Section": "Data Fiduciary/Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_13_g_4",
+      "Name": "Communication",
+      "Description": "Are template responses clear and tracked?",
+      "Attributes": [
+        {
+          "ItemId": "rule_13_g_4",
+          "Section": "Data Fiduciary/Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_14_n_1",
+      "Name": "Nomination UX",
+      "Description": "Is nomination available in account settings and verified?",
+      "Attributes": [
+        {
+          "ItemId": "rule_14_n_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_15_transfer_1",
+      "Name": "Cross-border transfer permitted unless restricted by Central Government.",
+      "Description": "Are transfers to non-restricted territories documented with contractual and technical controls?",
+      "Attributes": [
+        {
+          "ItemId": "rule_15_transfer_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": []
+    },
+    {
+      "Id": "rule_15_transfer_2",
+      "Name": "Data flow mapping for cross-border transfers.",
+      "Description": "Is there an auditable record of where personal data is stored, replicated, backed up, and accessed?",
+      "Attributes": [
+        {
+          "ItemId": "rule_15_transfer_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_cross_region_replication"
+      ]
+    },
+    {
+      "Id": "rule_15_transfer_3",
+      "Name": "SDF additional transfer restrictions for Schedule 3 data.",
+      "Description": "If classified as SDF, are transfers of Schedule 3 categories restricted to approved regions?",
+      "Attributes": [
+        {
+          "ItemId": "rule_15_transfer_3",
+          "Section": "Significant Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_scp_check_deny_regions"
+      ]
+    },
+    {
+      "Id": "rule_consent_mgr_1",
+      "Name": "Use only registered Consent Manager for consent management.",
+      "Description": "Is consent managed via a registered Consent Manager with valid registration from the Board?",
+      "Attributes": [
+        {
+          "ItemId": "rule_consent_mgr_1",
+          "Section": "Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cognito_user_pool_deletion_protection_enabled"
+      ]
+    },
+    {
+      "Id": "rule_consent_mgr_2",
+      "Name": "Consent Manager interoperability and accountability.",
+      "Description": "Does the Consent Manager enable DP to give/withdraw/review consent and is it interoperable with DF systems?",
+      "Attributes": [
+        {
+          "ItemId": "rule_consent_mgr_2",
+          "Section": "Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "apigateway_restapi_authorizers_enabled",
+        "apigateway_restapi_logging_enabled"
+      ]
+    },
+    {
+      "Id": "rule_consent_mgr_3",
+      "Name": "Consent records with timestamps and purpose tags.",
+      "Description": "Are consent records stored with timestamp, purpose, version, and exportable for audit?",
+      "Attributes": [
+        {
+          "ItemId": "rule_consent_mgr_3",
+          "Section": "Consent Manager",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "dynamodb_tables_kms_cmk_encryption_enabled",
+        "dynamodb_tables_pitr_enabled"
+      ]
+    },
+    {
+      "Id": "rule_data_localization_1",
+      "Name": "Enforce data residency within approved AWS regions.",
+      "Description": "Are SCPs or IAM policies enforcing that personal data resources are created only in ap-south-1/ap-south-2?",
+      "Attributes": [
+        {
+          "ItemId": "rule_data_localization_1",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_scp_check_deny_regions"
+      ]
+    },
+    {
+      "Id": "rule_data_localization_2",
+      "Name": "Prevent uncontrolled cross-region replication of personal data.",
+      "Description": "Are S3 replication rules, RDS read replicas, and backups restricted to India regions?",
+      "Attributes": [
+        {
+          "ItemId": "rule_data_localization_2",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "s3_bucket_cross_region_replication"
+      ]
+    },
+    {
+      "Id": "rule_8_7_pre_erasure",
+      "Name": "48-hour pre-erasure intimation to Data Principal.",
+      "Description": "Is the Data Principal informed at least 48 hours before erasure, allowing them to log in or exercise rights?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_7_pre_erasure",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudwatch_alarm_actions_enabled"
+      ]
+    },
+    {
+      "Id": "rule_8_5_sec_5_retention_365",
+      "Name": "Minimum 1-year (365-day) retention for logs and traffic data.",
+      "Description": "Are CloudTrail logs, VPC Flow Logs, and processing logs retained for at least 365 days for breach detection and investigation?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_5_sec_5_retention_365",
+          "Section": "Data Fiduciary/Processor",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "cloudwatch_log_group_retention_policy_specific_days_enabled",
+        "cloudtrail_multi_region_enabled",
+        "s3_bucket_object_lock"
+      ]
+    },
+    {
+      "Id": "rule_8_2_subprocessor_1",
+      "Name": "Sub-processor governance and transparency.",
+      "Description": "Is a sub-processor list maintained with advance change notifications and contractual flow-down of security and privacy obligations?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_2_subprocessor_1",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_account_part_of_organizations",
+        "organizations_delegated_administrators"
+      ]
+    },
+    {
+      "Id": "rule_8_2_subprocessor_2",
+      "Name": "Sub-processor audit and compliance verification.",
+      "Description": "Are sub-processors periodically assessed for DPDPA compliance with documented evidence?",
+      "Attributes": [
+        {
+          "ItemId": "rule_8_2_subprocessor_2",
+          "Section": "Data Fiduciary",
+          "Service": "aws"
+        }
+      ],
+      "Checks": [
+        "organizations_account_part_of_organizations"
+      ]
+    }
+  ]
+}
